@@ -1,0 +1,41 @@
+{
+    "name": "sandrokeil/code-generator",
+    "description": "Zend Framework 2 (ZF2) code generator which generates form and input filter depending on database or doctrine 2 meta data.",
+    "homepage": "https://github.com/sandrokeil/CodeGenerator",
+    "license": "BSD-3-Clause",
+    "type": "library",
+    "keywords": [
+        "zf2",
+        "code",
+        "generator",
+        "form",
+        "input filter",
+        "inputfilter",
+        "doctrine",
+        "entity",
+        "code generator",
+        "zend framework"
+    ],
+    "authors": [
+        {"name": "Sandro Keil", "homepage": "https://github.com/sandrokeil"}
+    ],
+    "autoload": {
+        "psr-4": {
+            "Sake\\CodeGenerator\\": "src/",
+            "SakeTest\\CodeGenerator\\": "test/"
+        }
+    },
+    "require": {
+        "php": "~5.3",
+        "zendframework/zend-stdlib": "~2.2",
+        "zendframework/zend-code": "~2.2"
+    },
+    "require-dev": {
+        "sandrokeil/citools": "~1.0"
+    },
+    "suggest": {
+        "doctrine/orm": "Doctrine\\ORM if you want to generate classes from doctrine 2",
+        "zendframework/zend-db": "Zend\\Db if you want to generate classes from zend framework 2 db",
+        "zendframework/zend-modulemanager": "Zend\\ModuleManager to use default module configuration e.g. services"
+    }
+}
