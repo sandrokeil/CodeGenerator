@@ -25,9 +25,7 @@ class GenerateInputFilterCommand extends AbstractCommand
     {
         parent::configure();
 
-        $this
-            ->setName('zf:generate-inputfilter')
-            ->setAliases(array('zf:generate:inputfilter'))
+        $this->setName('zf:generate-inputfilter')
             ->setDescription('Generates zend framework 2 input filter via doctrine 2')
             ->setHelp(
 <<<EOT

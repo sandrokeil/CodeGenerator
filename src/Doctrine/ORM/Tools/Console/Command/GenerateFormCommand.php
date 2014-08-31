@@ -25,9 +25,7 @@ class GenerateFormCommand extends AbstractCommand
     {
         parent::configure();
 
-        $this
-            ->setName('zf:generate-form')
-            ->setAliases(array('zf:generate:form'))
+        $this->setName('zf:generate-form')
             ->setDescription('Generates zend framework 2 form via doctrine')
             ->setHelp(
 <<<EOT
