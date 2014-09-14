@@ -9,7 +9,7 @@
 
 namespace Sake\CodeGenerator\Doctrine\ORM\Tools\Console\Command;
 
-use Sake\CodeGenerator\Code\Generator\CodeGenerator;
+use Sake\CodeGenerator\Code\Generator\FormGenerator;
 
 /**
  * Generate form command
@@ -37,10 +37,10 @@ EOT
     /**
      * Returns form generator
      *
-     * @return CodeGenerator
+     * @return FormGenerator
      */
     protected function getGenerator()
     {
-        return new CodeGenerator();
+        return new FormGenerator();
     }
 }

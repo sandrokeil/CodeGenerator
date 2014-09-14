@@ -20,7 +20,7 @@ use Zend\Code\Generator\MethodGenerator;
  *
  * Generates zend framework 2 form depending on given meta data (table or entity definitions).
  */
-class CodeGenerator extends AbstractGenerator
+class FormGenerator extends AbstractGenerator
 {
     /**
      * FCQN of class to extends
@@ -164,6 +164,7 @@ class CodeGenerator extends AbstractGenerator
     protected function getAddMethodForAssociation(array $data)
     {
         $name = $this->convertName($data['fieldName']);
+        $attributes = "array('id' => '" . $name . "')";
 
         $body = <<<'EOT'
     $this->add(
@@ -176,7 +177,8 @@ class CodeGenerator extends AbstractGenerator
             'object_manager' => $this->getObjectManager(),
             'target_class' => '%s',
             'property' => '%s',
-        )
+        ),
+        'attributes' => %s,
     )
 );
 
@@ -189,7 +191,8 @@ EOT;
             $name,
             $name,
             $data['targetEntity'],
-            '[SET PROPERTY NAME FOR TEXT]'
+            '[SET PROPERTY NAME FOR TEXT]',
+            $attributes
         );
         return new MethodGenerator(
             'addElement' . $name,
@@ -210,6 +213,7 @@ EOT;
     {
         $name = $this->convertName($data['columnName']);
         $options = "array('label' => '" . $name . "')";
+        $attributes = "array('id' => '" . $name . "')";
 
         $body = <<<'EOT'
     $this->add(
@@ -217,6 +221,7 @@ EOT;
         'type' => '%s',
         'name' => '%s',
         'options' => %s,
+        'attributes' => %s,
     )
 );
 
@@ -226,7 +231,7 @@ EOT;
             'addElement' . $name,
             array(),
             MethodGenerator::FLAG_PROTECTED,
-            sprintf($body, $this->getElementType($data), lcfirst($name), $options),
+            sprintf($body, $this->getElementType($data), lcfirst($name), $options, $attributes),
             new DocBlockGenerator(sprintf('Adds element %s to form', lcfirst($name)))
         );
     }
