@@ -31,6 +31,12 @@
         "zendframework/zend-code": "~2.2"
     },
     "require-dev": {
+        "zendframework/zend-test": "~2.2",
+        "zendframework/zend-config": "~2.2",
+        "zendframework/zend-form": "~2.2",
+        "zendframework/zend-serializer": "~2.2",
+        "zendframework/zend-log": "~2.2",
+        "zendframework/zend-modulemanager": "~2.2",
         "sandrokeil/citools": "~1.0"
     },
     "suggest": {

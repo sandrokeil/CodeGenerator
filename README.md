@@ -12,6 +12,7 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sandrokeil/CodeGenerator/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sandrokeil/CodeGenerator/?branch=master)
 [![Coverage Status](https://coveralls.io/repos/sandrokeil/CodeGenerator/badge.png)](https://coveralls.io/r/sandrokeil/CodeGenerator)
 [![HHVM Status](http://hhvm.h4cc.de/badge/sandrokeil/code-generator.svg)](http://hhvm.h4cc.de/package/sandrokeil/code-generator)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/964d0e45-5d35-4f52-b365-bb045825ac39/mini.png)](https://insight.sensiolabs.com/projects/964d0e45-5d35-4f52-b365-bb045825ac39)
 [![Latest Stable Version](https://poser.pugx.org/sandrokeil/code-generator/v/stable.png)](https://packagist.org/packages/sandrokeil/code-generator)
 [![Dependency Status](https://www.versioneye.com/user/projects/540371b0eab62a132800014a/badge.svg)](https://www.versioneye.com/user/projects/540371b0eab62a132800014a)
 [![Total Downloads](https://poser.pugx.org/sandrokeil/code-generator/downloads.png)](https://packagist.org/packages/sandrokeil/code-generator)
