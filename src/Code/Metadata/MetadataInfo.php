@@ -7,7 +7,7 @@
  * @license   http://github.com/sandrokeil/CodeGenerator/blob/master/LICENSE.txt New BSD License
  */
 
-namespace Sake\CodeGenerator\Code\Generator;
+namespace Sake\CodeGenerator\Code\Metadata;
 
 use Zend\Stdlib\AbstractOptions;
 
@@ -16,7 +16,7 @@ use Zend\Stdlib\AbstractOptions;
  *
  * Contains table/entity/class definitions to generate several classes
  */
-class MetaData extends AbstractOptions
+class MetadataInfo extends AbstractOptions
 {
     /**
      * @var array

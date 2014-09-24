@@ -9,6 +9,7 @@
 
 namespace Sake\CodeGenerator\Code\Generator;
 
+use Sake\CodeGenerator\Code\Metadata\MetadataInfo;
 use Zend\Code\Generator\DocBlock\Tag;
 use Zend\Code\Generator\DocBlockGenerator;
 use Zend\Code\Generator\FileGenerator;
@@ -39,10 +40,10 @@ class FormGenerator extends AbstractGenerator
     /**
      * Returns file name for specifc generated type
      *
-     * @param MetaData $metadata
+     * @param MetadataInfo $metadata
      * @return string
      */
-    public function getName(MetaData $metadata)
+    public function getName(MetadataInfo $metadata)
     {
         return 'Form/Fieldset/' . $this->convertName($metadata->getTable('name'));
     }
@@ -50,10 +51,10 @@ class FormGenerator extends AbstractGenerator
     /**
      * Generates zend form class
      *
-     * @param MetaData $metadata
+     * @param MetadataInfo $metadata
      * @return FileGenerator
      */
-    public function generateClass(MetaData $metadata)
+    public function generateClass(MetadataInfo $metadata)
     {
         $methods = array($this->getInitMethod($metadata), );
 
@@ -104,10 +105,10 @@ class FormGenerator extends AbstractGenerator
     /**
      * Generate form init method which calls add functions.
      *
-     * @param MetaData $metadataInfo
+     * @param MetadataInfo $metadataInfo
      * @return MethodGenerator
      */
-    protected function getInitMethod(MetaData $metadataInfo)
+    protected function getInitMethod(MetadataInfo $metadataInfo)
     {
         $body = '';
 

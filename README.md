@@ -52,3 +52,19 @@ zf:generate-form [--filter="..."] [--force] [--from-database] [--extend[="..."]]
 ```
 
 ## Console Zend Framework 2
+
+## Generated Classes
+At the moment the following classes can be generated:
+
+* ZF2 Form Fieldsets (Collections)
+* ZF2 Input Filter
+
+## Known limitations
+Unfortunately is it necessary to change some generated code lines by yourself, because some information is currently missing
+to make some classes working out of the box.
+
+### Form Fieldsets (Collections)
+If you have relations (foreign keys) defined in your entities the `\DoctrineModule\Persistence\ObjectManagerAwareInterface`
+must be implemented by yourself. Additionally you must set `property` option for the name of the text which should be
+displayed in select box.
+

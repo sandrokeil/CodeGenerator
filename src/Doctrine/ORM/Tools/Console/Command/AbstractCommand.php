@@ -10,7 +10,7 @@
 namespace Sake\CodeGenerator\Doctrine\ORM\Tools\Console\Command;
 
 use Doctrine\ORM\EntityManager;
-use Sake\CodeGenerator\Code\Generator\MetaData;
+use Sake\CodeGenerator\Code\Metadata\MetadataInfo;
 use Sake\CodeGenerator\Hydrator\DoctrineMetadata;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
@@ -148,7 +148,7 @@ abstract class AbstractCommand extends Command
         $hydtrator = $this->getHydrator();
 
         foreach ($doctrineMetaData as $data) {
-            $metaData[$data->name] = new MetaData($hydtrator->extract($data));
+            $metaData[$data->name] = new MetadataInfo($hydtrator->extract($data));
             $output->writeln(
                 sprintf('Processing class "<info>%s</info>"', $data->name)
             );

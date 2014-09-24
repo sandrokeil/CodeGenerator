@@ -26,21 +26,22 @@
         }
     },
     "require": {
-        "php": "~5.3",
-        "zendframework/zend-stdlib": "~2.2",
-        "zendframework/zend-code": "~2.2"
+        "php": "~5.4",
+        "zendframework/zend-stdlib": "~2.3",
+        "zendframework/zend-code": "~2.3"
     },
     "require-dev": {
-        "zendframework/zend-test": "~2.2",
-        "zendframework/zend-config": "~2.2",
-        "zendframework/zend-form": "~2.2",
-        "zendframework/zend-serializer": "~2.2",
-        "zendframework/zend-log": "~2.2",
-        "zendframework/zend-modulemanager": "~2.2",
+        "zendframework/zend-test": "~2.3",
+        "zendframework/zend-config": "~2.3",
+        "zendframework/zend-form": "~2.3",
+        "zendframework/zend-serializer": "~2.3",
+        "zendframework/zend-log": "~2.3",
+        "zendframework/zend-modulemanager": "~2.3",
         "sandrokeil/citools": "~1.0"
     },
     "suggest": {
         "doctrine/orm": "Doctrine\\ORM if you want to generate classes from doctrine 2",
+        "symfony/console": "Symfony\\Console if you want to generate classes from doctrine 2",
         "zendframework/zend-db": "Zend\\Db if you want to generate classes from zend framework 2 db",
         "zendframework/zend-modulemanager": "Zend\\ModuleManager to use default module configuration e.g. services"
     }

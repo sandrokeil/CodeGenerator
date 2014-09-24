@@ -9,6 +9,7 @@
 
 namespace Sake\CodeGenerator\Code\Generator;
 
+use Sake\CodeGenerator\Code\Metadata\MetadataInfo;
 use Zend\Code\Generator\FileGenerator;
 
 /**
@@ -55,10 +56,10 @@ abstract class AbstractGenerator
     /**
      * Generates and writes class to disk for the given ClassMetadataInfo instance.
      *
-     * @param MetaData $metadata
+     * @param MetadataInfo $metadata
      * @param string            $outputDirectory
      */
-    public function writeClass(MetaData $metadata, $outputDirectory)
+    public function writeClass(MetadataInfo $metadata, $outputDirectory)
     {
         $path = $outputDirectory . '/'
             . str_replace('\\', DIRECTORY_SEPARATOR, $this->getName($metadata))
@@ -132,16 +133,16 @@ abstract class AbstractGenerator
     /**
      * Generates class
      *
-     * @param MetaData $metadata
+     * @param MetadataInfo $metadata
      * @return FileGenerator
      */
-    abstract public function generateClass(MetaData $metadata);
+    abstract public function generateClass(MetadataInfo $metadata);
 
     /**
      * Returns file name for specifc generated type
      *
-     * @param MetaData $metadata
+     * @param MetadataInfo $metadata
      * @return string
      */
-    abstract public function getName(MetaData $metadata);
+    abstract public function getName(MetadataInfo $metadata);
 }

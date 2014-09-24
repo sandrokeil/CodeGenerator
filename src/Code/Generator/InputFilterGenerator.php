@@ -9,6 +9,7 @@
 
 namespace Sake\CodeGenerator\Code\Generator;
 
+use Sake\CodeGenerator\Code\Metadata\MetadataInfo;
 use Zend\Code\Generator\DocBlockGenerator;
 use Zend\Code\Generator\FileGenerator;
 use Zend\Code\Generator\ClassGenerator;
@@ -66,10 +67,10 @@ class InputFilterGenerator extends AbstractGenerator
     /**
      * Returns file name for specifc generated type
      *
-     * @param MetaData $metadata
+     * @param MetadataInfo $metadata
      * @return string
      */
-    public function getName(MetaData $metadata)
+    public function getName(MetadataInfo $metadata)
     {
         return 'InputFilter/' . $this->convertName($metadata->getTable('name'));
     }
@@ -77,10 +78,10 @@ class InputFilterGenerator extends AbstractGenerator
     /**
      * Generate input filter init method which calls add functions.
      *
-     * @param MetaData $metadataInfo
+     * @param MetadataInfo $metadataInfo
      * @return MethodGenerator
      */
-    protected function getInitMethod(MetaData $metadataInfo)
+    protected function getInitMethod(MetadataInfo $metadataInfo)
     {
         $body = '';
 
@@ -90,13 +91,6 @@ class InputFilterGenerator extends AbstractGenerator
                 continue;
             }
             $body .= '$this->addElement' . $this->convertName($data['columnName']) . '();' . PHP_EOL;
-        }
-        foreach ($metadataInfo->getForeignKeys() as $name => $data) {
-            // dont add foreign key definition
-            if (8 === $data['type']) {
-                continue;
-            }
-            $body .= '$this->addElement' . $this->convertName($data['fieldName']) . '();' . PHP_EOL;
         }
 
         return new MethodGenerator(
@@ -111,10 +105,10 @@ class InputFilterGenerator extends AbstractGenerator
     /**
      * Generates input filter class
      *
-     * @param MetaData $metadata
+     * @param MetadataInfo $metadata
      * @return FileGenerator
      */
-    public function generateClass(MetaData $metadata)
+    public function generateClass(MetadataInfo $metadata)
     {
         $methods = array($this->getInitMethod($metadata));
 

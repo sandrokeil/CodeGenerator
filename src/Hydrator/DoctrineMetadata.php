@@ -9,7 +9,7 @@
 
 namespace Sake\CodeGenerator\Hydrator;
 
-use Doctrine\ORM\Mapping\MetaData;
+use \Doctrine\ORM\Mapping\ClassMetadataInfo;
 use Zend\Stdlib\Hydrator\HydratorInterface;
 use Sake\CodeGenerator\Exception;
 
@@ -28,7 +28,7 @@ class DoctrineMetadata implements HydratorInterface
      */
     public function extract($object)
     {
-        if (!$object instanceof MetaData) {
+        if (!$object instanceof ClassMetadataInfo) {
             return array();
         }
 
