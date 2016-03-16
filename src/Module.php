@@ -9,6 +9,8 @@
 
 namespace Sake\CodeGenerator;
 
+use Sake\CodeGenerator\Doctrine\ORM\Tools\Console\Command\GenerateFormCommand;
+use Sake\CodeGenerator\Doctrine\ORM\Tools\Console\Command\GenerateInputFilterCommand;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
 
 /**
@@ -16,6 +18,26 @@ use Zend\ModuleManager\Feature\ConfigProviderInterface;
  */
 class Module implements ConfigProviderInterface
 {
+
+    /**
+     * {@inheritDoc}
+     */
+    public function init(ModuleManager $e)
+    {
+        $events = $e->getEventManager()->getSharedManager();
+        // Attach to helper set event and load the entity manager helper.
+        $events->attach('doctrine', 'loadCli.post', function (EventInterface $e) {
+            /* @var $cli \Symfony\Component\Console\Application */
+            $cli = $e->getTarget();
+            ConsoleRunner::addCommands($cli);
+            $cli->addCommands(array(
+                new GenerateFormCommand(),
+                new GenerateInputFilterCommand()
+            ));
+        });
+    }
+
+
     /**
      * Expected to return \Zend\ServiceManager\Config object or array to
      * seed such an object.

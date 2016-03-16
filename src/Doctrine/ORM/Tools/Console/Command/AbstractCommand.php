@@ -138,7 +138,7 @@ abstract class AbstractCommand extends Command
         }
 
         if (($namespace = $input->getOption('namespace')) !== null) {
-            $generator->setNamespace($extend);
+            $generator->setNamespace($namespace);
         }
         if (($numSpaces = $input->getOption('num-spaces')) !== null) {
             $generator->setNumSpaces($numSpaces);
